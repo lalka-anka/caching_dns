@@ -68,10 +68,7 @@ def cache_record_as_bytes(records, request):
             Answer(i.name, i.type, i.ttl, i.length, i.data))
     res = Response(
         b'\x00',
-        Header(request.header.id, Flag(BitArray(b'\x80\x80')),
-               request.header.qdcount, anc, 0, 0),
-        request.request,
-        answers
+        Header(request.header.id, Flag(BitArray(b'\x80\x80')), request.header.qd_count, anc, 0, 0), request.request, answers
     )
     return res.to_bytes()
 

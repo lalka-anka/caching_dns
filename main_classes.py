@@ -56,9 +56,7 @@ class Header:
     def to_bytes(self):
         id_bytes = return_hex(self.id)
         flags_bytes = self.flags.to_bytes()
-        return id_bytes + flags_bytes + int_to_hex(self.qd_count, 4) + int_to_hex(
-            self.an_count, 4) + int_to_hex(self.ns_count, 4) + int_to_hex(
-            self.ar_count, 4)
+        return id_bytes + flags_bytes + int_to_hex(self.qd_count, 4) + int_to_hex(self.an_count, 4) + int_to_hex(self.ns_count, 4) + int_to_hex(self.ar_count, 4)
 
     def __str__(self):
         return f"Flags: {str(self.flags)}; req_id: {self.id}"
